@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum ItemCategory: String, CaseIterable, Identifiable {
+    case food = "Food"
+    case drink = "Drink"
+    
+    var id: String { rawValue }
+}
