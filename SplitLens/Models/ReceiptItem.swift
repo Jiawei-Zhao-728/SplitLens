@@ -24,6 +24,22 @@ struct ReceiptItem: Identifiable {
 
     }
     
+    mutating func toggleSharer(_ personID: UUID, among allPeopleIDs: Set<UUID>) {
+        var sharers = sharedBy.isEmpty ? allPeopleIDs : sharedBy
+
+        if sharers.contains(personID) {
+            sharers.remove(personID)
+        } else {
+            sharers.insert(personID)
+        }
+
+        sharedBy = sharers == allPeopleIDs ? [] : sharers
+    }
+
+    
+    
+    
+    
     
 }
 
